@@ -55,7 +55,7 @@
                                 <select onchange="form.submit()" name="liste-anniv" id="liste-evang">
                                     {% for pers in personnes_select_box %}
                                         <option {% if pers.id == pers_select.id %}selected="true" {% endif %} value="{{pers.id}}">
-                                            Anniversaire <b style="color: #b1cdec;">{{pers.date_naissance|date:"M Y"}}</b>
+                                           Né en <b style="color: #b1cdec;">{{pers.date_naissance|date:"F Y"}}</b>
                                         </option>
                                     {% endfor %}
                                 </select>

@@ -139,7 +139,7 @@
                                                 {% for anniv in anniversaires %}
                                                     <li>{{ anniv.nom_et_prenom }} (Né le {{ anniv.date_naissance|date:"d F Y" }})</li>
                                                 {% empty %}
-                                                    <p style="color: #dc3545;">pas d'anniversaire</p>
+                                                    <p style="color: #dc3545;">pas d'anniversaire <i class="fa fa-frown-o"></i></p>
                                                 {% endfor %} 
                                             </ul>
                                         </div>

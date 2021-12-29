@@ -34,7 +34,7 @@ def notification_app_index(request):
             raise Http404("Pages non disponible")
         context['pers_select'] = pers_select
     else:
-        anniversaires = Personne.objects.filter(date_naissance__month=datetime.date.today().month)
+        anniversaires = Personne.objects.filter(date_naissance__month=datetime.date.today().month, date_naissance__year=datetime.date.today().year)
         personnes = Personne.objects.all()
 
     context['anniversaires'] = anniversaires

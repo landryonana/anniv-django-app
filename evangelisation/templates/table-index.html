@@ -1,0 +1,42 @@
+<div class="table-responsive">
+    <table class="table table-bordered table-hover" id="person-evang">
+        <thead>
+            <tr>
+                <th scope="col" rowspan="2" class="action-checkbox-column">
+                    #
+                </th>
+                <th scope="col" rowspan="2">Nom et prenom</th>
+                <th scope="col" rowspan="2">Sexe</th>
+                <th scope="col" rowspan="2">Contact</th>
+                <th scope="col" rowspan="2">Détail</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pers in personnes %}
+                <tr>
+                    <td scope="row" class="action-checkbox">
+                        {{forloop.counter}}
+                    </td>
+                    <td>{{ pers.nom_et_prenom }}</td>
+                    <td>{{ pers.sexe }}</td>
+                    <td>{{ pers.contacts }}</td>
+                    <td style="min-width: 135px;">
+                        <a class="btn btn-primary btn-sm" href="{% url 'notification:notification_app_detail_personne' pers.id %}">Détail</a>
+                    </td>
+                </tr>
+            {% empty %}
+            <tr style="color: rgb(223, 78, 78);">
+                <td scope="row" class="action-checkbox">
+                    ---
+                </td>
+                <td>pas de donnée</td>
+                <td>pas de donnée</td>
+                <td>pas de donnée</td>
+                <td>
+                    pas de donnée
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

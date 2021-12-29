@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+
+{% block titre %}
+    vh-cam|Personnes
+{% endblock titre %}
+
+
+
+{% block hamburger %}
+    <div class="menu-btn">
+        <i class="fas fa-bars"></i>
+        <i class="fas fa-times"></i>
+    </div>
+{% endblock hamburger %}
+
+
+
+{% block sidebar %}
+    {% include 'layouts/_sidebar.html' %}
+{% endblock sidebar %}
+
+
+
+{% block content %}
+<div class="home">
+    <div class="wrapper-head-liste">
+        <div class="head-liste">
+            <h2>
+                {% if modifier %}
+                    Modifier {{personne}}
+                {% else %}
+                    Ajouter des personnes
+                {% endif %}
+            </h2>
+            <h4>Personnes</h4>
+        </div>
+    </div>
+    {% if messages %}
+    <div class="wrapper-evang">
+        <div class="row">
+            <div class="form-group">
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li class="{{ message.tags }}">
+                        {{ message|safe }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="row">
+        <form id="form-suppresion-liste" 
+                action="
+                {% if modifier %}
+                    {% url 'notification:notification_app_detail_personne' personne.id %}
+                {% else %}
+                    {% url 'notification:notification_app_ajouter_personne' %}
+                {% endif %}" 
+                method="post" 
+                class="form-group row">
+            {% csrf_token %}
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="wrapper-form-personne">
+                        <div class="personne-fields">
+                            {% for field in form %}
+                            <div class="form-group {% if field.errors %}has-error{% endif %}" style="overflow: auto;">
+                                <div class="form-field">
+                                    <label for="{{ field.id_for_label }}">{{field.label}}</label> 
+                                    {% render_field field class="form-control" %}
+                                    <small class="form-text text-muted">{{ field.help_text|safe }}</small>
+                                    {% for error in field.errors %}
+                                        <p class="pt-2 pb-2 pl-2 pr-2" style="background-color: #dc3545;border-radius: 7px;">
+                                            {{ error }}
+                                        </p>
+                                    {% endfor %} 
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="wrapper-btn-formset">
+                        {% if modifier %}
+                        <input type="submit" value="Modifier les informations" name="submit" class="btn btn-success btn-sm">
+                        <a href="{% url 'notification:notification_app_index' %}"
+                            class="btn btn-secondary btn-sm">Retour</a>
+                        <a href="{% url 'notification:notification_app_supprimer_personne' personne.id %}"
+                            class="btn btn-danger btn-sm">Supprimer</a>
+                        {% else %}
+                        <input type="submit" value="Ajouter" name="submit" class="btn btn-success btn-sm">
+                        <a href="{% url 'notification:notification_app_index' %}"
+                            class="btn btn-secondary btn-sm">Annuler</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

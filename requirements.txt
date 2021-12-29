@@ -1,0 +1,10 @@
+cloudinary==1.17.0
+Django==2.2.24
+django-cloudinary-storage==0.2.3
+django-widget-tweaks==1.4.8
+django_heroku==0.3.1
+gunicorn==19.7.1
+Pillow==7.0.0
+psycopg2-binary==2.8.6
+twilio==7.4.0
+whitenoise==5.3.0

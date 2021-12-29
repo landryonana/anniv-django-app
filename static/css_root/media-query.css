@@ -1,0 +1,500 @@
+@media (min-width: 992px) and (max-width: 1199px){
+    
+}
+
+
+@media (min-width: 768px) and (max-width: 991px){
+    .wrapper-detail-participants{
+        margin-left: 0px;
+    }
+    .wrapper-form{
+        padding-top: 45px;
+    }
+    .wrapper-user{
+        padding: 50px 15px;
+    
+    }
+    .user-profile-image{
+        padding-top: 35px;
+    }
+    .user-profile-image img{
+        height: 180px;
+        width: 180px;
+    }
+    #btn-search{
+        margin: 7px 0px 0px 0px;
+        width: 100%;
+    }
+    .search-form input{
+        width: 75%;
+    }
+    .messages{
+        margin-top: 15px;
+    }
+    .form{
+        width: 100%;
+    }
+    
+    .form-field{
+        width: 100%;
+    }
+    .wrapper-login .login{
+        
+    }
+    .head-liste h2{
+        
+    }
+    .head-liste h4{
+        
+    }
+    .wrapper {
+    }
+    #content{
+    }
+    #btn-add-user{
+        width: 100%;
+    }
+    
+    #btn-liste-delete{
+        width: 17%;
+    }
+    
+    .liste{
+    }
+    
+    .liste form#form-suppresion-liste{
+        margin-top: 15px;
+        width: 100%;
+    }
+    
+    .liste form#form-suppresion-liste label{
+    }
+
+    select#liste-evang{
+        width: 100%;
+    }
+    
+    select{
+        width: 68%;
+        margin-right: 5px;
+    }
+
+    .wrap-ud-btn .ud-btn {
+        justify-content: center;
+    }
+
+    .ud-btn a.btn-sm {
+        width: 100%;
+    }
+
+    .btn-with-form{
+        width: 200px;
+    }
+    
+    .counter-selected{
+    width: 100%;
+    text-align: center;
+    padding: 15px 0px;
+}
+    
+    .counter-selcted b{
+        
+    }
+    
+    .wrapper-btn-add{
+    width: 100%;
+    }
+
+    .wrapper-btn-add .btn{
+        width: 100%;
+        }
+    
+    .results{
+       
+    }
+    
+
+}
+
+
+@media (min-width: 576px) and (max-width: 767px){
+    .wrapper-detail-participants{
+
+    }
+    .btn-with-form {
+       margin-bottom: 15px !important;
+    }
+    .wrapper-form{
+        padding-top: 25px;
+    }
+    .side-liste{
+        border-bottom: 2px solid #006c69;
+    }
+    .ud-btn a.btn-sm {
+        width: 100%;
+    }
+    .ud-btn a.btn-sm {
+        width: 100%;
+    }
+    .wrapper-btn-formset a {
+        margin-left: 0;
+    }
+    .wrapper-btn-formset{
+        padding: 15px 5px;
+        flex-direction: column;
+        margin-top: 0px;
+    }
+    .personne-fields{
+        width: 100%;
+    }
+    .form-group{
+        width: 100%;
+    }
+    .form-group .btn{
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    .btn-personne-ajout{
+        margin-bottom: 15px;
+    }
+    .wrapper-tabl-evang{
+        padding: 0;
+    }
+    .wrapper-detail-participants{
+        padding: 15px 0px 0px;
+        margin: 0;
+    }
+
+    .wrapper-detail-participants .row .col-sm-10,
+    .wrapper-detail-participants .row .col-sm-2{
+        padding: 0px 5px 0px;
+    }
+    .wrapper-evang{
+        padding: 0;
+    }
+    .wrapper-form_set_item{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .bloc-side-bar-link{
+        width: 550px;
+    }
+    .block-empty{
+        height: 100%;
+        width: 50%;
+    }
+    .bloc-side-bar-link{
+        width: 450px;
+    }
+    .block-empty{
+        height: 100%;
+        width: 100%;
+    }
+    #btn-search{
+        margin: 7px 0px 0px 0px;
+        width: 100%;
+    }
+    .search-form input{
+        width: 75%;
+    }
+    .messages{
+        margin-top: 15px;
+    }
+    .form{
+        width: 100%;
+    }
+    
+    .form-field{
+        width: 100%;
+    }
+    .wrapper-login .login{
+        
+    }
+    .head-liste h2{
+        font-size: 25px;
+    }
+    .head-liste h4{
+        font-size: 15px;
+    }
+    .wrapper {
+    }
+    #content{
+    }
+    #btn-add-user{
+        width: 100%;
+    }
+    
+    #btn-liste-delete{
+        width: 17%;
+    }
+    
+    .liste{
+    }
+    
+    .liste form#form-suppresion-liste{
+        margin-top: 15px;
+        width: 100%;
+    }
+    
+    .liste form#form-suppresion-liste label{
+    }
+    select#liste-evang{
+        width: 100%;
+    }
+    select{
+        width: 69%;
+        margin-right: 5px;
+    }
+    
+    .counter-selected{
+    width: 100%;
+    text-align: center;
+    padding: 15px 0px;
+}
+    
+    .counter-selcted b{
+        
+    }
+    
+    .wrapper-btn-add{
+    width: 100%;
+    }
+    
+    .results{
+       
+    }
+    
+
+}
+
+
+
+
+@media screen and (max-width: 575px){
+    .wrapper-detail-participants .row .col-sm-10,
+    .wrapper-detail-participants .row .col-sm-2{
+        padding: 0px 10px 0px;
+    }
+    .wrapper-detail-evang .row {
+        padding: 10px;
+    }
+    .user-profile-info, .user-profile-image{
+        margin-top: 15px;
+    }
+    .wrapper-user{
+        padding: 65px 0px;
+    }
+    .side-liste{
+        border-bottom: 2px solid #006c69;
+    }
+    .wrap-ud-btn .ud-btn{
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .ud-btn a.btn-sm{
+        width: 100%;
+    }
+    .wrapper-btn-formset a {
+        margin-left: 0;
+    }
+    .wrapper-btn-formset{
+        padding: 15px 5px;
+        flex-direction: column;
+        margin-top: 0px;
+    }
+    .personne-fields{
+        width: 100%;
+    }
+    .form-group{
+        width: 100%;
+    }
+    .form-group .btn{
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    .btn-personne-ajout{
+        margin-bottom: 15px;
+    }
+    .wrapper-tabl-evang{
+        padding: 0;
+    }
+    .wrapper-detail-participants{
+        padding: 0;
+        margin: 0;
+    }
+    .wrapper-evang{
+        padding: 0;
+    }
+    .wrapper-form_set_item{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .bloc-side-bar-link{
+        width: 550px;
+    }
+    .block-empty{
+        height: 100%;
+        width: 50%;
+    }
+    .modal-title{
+        font-size: 20px;
+    }
+    .btn-modal{
+        width: 100% !important;
+    }
+    #btn-search{
+        margin: 7px 0px 0px 0px;
+        width: 100%;
+    }
+    .search-form{
+        padding-left: 5px;
+        padding-right: 5px;
+        flex-direction: column;
+    }
+    .search-form input{
+        width: 100%;
+    }
+    .form{
+        width: 100%;
+    }
+    
+    .form-field{
+        width: 100%;
+    }
+    .messages{
+        margin-top: 15px;
+    }
+    .error-form h4{
+        font-size: 15px;
+    }
+    .head-liste h2{
+        font-size: 25px;
+        text-align: center;
+    }
+    .head-liste h4{
+        font-size: 15px;
+    }
+    .wrapper {
+    }
+    #content{
+    }
+    .btn-success{
+        width: 100%;
+    }
+    
+    .btn-secondary{
+        width: 100%;
+    }
+    
+    .liste{
+    padding: 0;
+    }
+    
+    .liste form#form-suppresion-liste{
+        margin-top: 7px;
+        width: 100%;
+    }
+    
+    .liste form#form-suppresion-liste label{
+    }
+    
+    select{
+        width: 100%;
+        margin-right: 0px;
+        margin-bottom: 15px;
+    }
+    
+    .counter-selected{
+    width: 100%; 	 		
+    text-align: center;
+    padding: 15px 0px;
+}
+    
+    .counter-selcted b{
+        
+    }
+    
+    .wrapper-btn-add{
+    width: 100%;
+    }
+    
+    .results{
+       
+    }
+    .wrapper-login-btn .btn{
+
+    }
+    .wrapper-login .login{
+       
+    }
+    .nav-bar{
+        padding: 0px 5px;
+    }
+
+    .container{
+        padding: 0px 5px !important;
+    }
+    .logo{
+        height: 45px;
+        width: 45px;
+    }
+    
+    .logo img{
+        height: 45px;
+        width: 45px;
+        border-radius: 50;
+    }
+    
+    .fa-clock{
+        font-size: 25px;
+    }
+    
+    .menu-date{
+     
+    }
+    
+    .menu-date span{
+        font-size: 15px;
+        font-weight: bold;
+        margin-left: 7px;
+        text-transform: uppercase;
+    }
+    
+    .home{
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 15px 0px 50px 0px;
+    }
+    
+    .wrapper-btn{
+        /* display: flex; */
+        /* justify-content: space-between; */
+        /* margin: 7px; */
+        text-align: center;
+        width: 100%;
+    }
+    
+    .wrapper-btn a{
+        width: 150px;
+        margin: 0px 7px;
+        border: none;
+    }
+    .btn-secondary{
+      width: 100px;
+      background: #c2a91f;
+    }
+    
+    .home h2{
+        font-size: 20px;
+    }
+    
+    .home h4{
+        font-size: 15px;
+    }
+    
+}

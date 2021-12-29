@@ -1,0 +1,45 @@
+{% load static %}
+<div class="side-bar">
+    <div class="bloc-side-bar-link">
+        <div class="side-bar-logo">
+            <a href="{% url 'user_detail' %}">
+                {% if user.profile.image  %}
+                <img src="{{ user.profile.image.url }}" alt="">
+                {% else %}
+                <img src="{% static 'images_root/logo/vh-yde.jpg' %}" alt="">
+                {% endif %}
+            </a>
+            <p>Bienvenue, <b>{{ request.user }}</b></p>
+        </div>
+        <div class="side-bar-account">
+            <div class="item {% if select_link == 'profile' %}actived{% endif %}">
+                <a href="{% url 'user_detail' %}">
+                    <i class="fas fa-user"></i>
+                    Profile
+                </a>
+            </div>
+            <div class="item {% if select_link == 'comptes' %}actived{% endif %}">
+                <a href="{% url 'user_comptes' %}">
+                    <i class="fas fa-users"></i>
+                    Comptes
+                </a>
+            </div>
+            <div class="item">
+                <a href="{% url 'user_logout' %}">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Se deconnecter
+                </a>
+            </div>
+        </div>
+        <hr>
+        <div class="menu">
+            <div class="item {% if select_link == 'sms' %}actived{% endif %}">
+                <a href="{% url 'notification:notification_app_index' %}">
+                    <i class="fas fa-sms"></i>
+                    SMS
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="block-empty"></div>
+</div>

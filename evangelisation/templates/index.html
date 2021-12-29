@@ -1,0 +1,213 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+
+{% block titre %}
+    VASE D'HONNEUR|Anniversaire
+{% endblock titre %}
+
+
+
+{% block hamburger %}
+    <div class="menu-btn">
+        <i class="fas fa-bars"></i>
+        <i class="fas fa-times"></i>
+    </div>
+{% endblock hamburger %}
+
+
+
+{% block sidebar %}
+    {% include 'layouts/_sidebar.html' %}
+{% endblock sidebar %}
+
+
+
+{% block content %}
+<div class="home">
+    <div class="wrapper-evang">
+        <div class="row">
+            <div class="form-group">
+                
+                {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li class="{{ message.tags }}">
+                            {{ message|safe }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                    
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-sm-12">
+                <div class="wrapper-detail-evang">
+                    <div class="evang-dropdow">
+                        {% if type_opera == 'ajouter' %}
+                            <h2>Ajouter une personne</h2>
+                        {% elif type_opera == 'modifier' %}
+                            <h2>Vous allez Modifier <b style="color: #c9b026;">{{ pers_select.nom_et_prenom }}</b></h2>
+                        {% else %}
+                            <form action="{% url 'notification:notification_app_index' %}">
+                                <label for="liste-evang">Recherche</label>
+                                <select onchange="form.submit()" name="liste-anniv" id="liste-evang">
+                                    {% for pers in personnes_select_box %}
+                                        <option {% if pers.id == pers_select.id %}selected="true" {% endif %} value="{{pers.id}}">
+                                            Anniversaire <b style="color: #b1cdec;">{{pers.date_naissance|date:"M Y"}}</b>
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </form>
+                        {% endif %}
+                    </div>
+                    <dl class="dl-horizontal"> 
+                        <div class="pt-2">
+                            {% if type_opera == 'ajouter' %}
+                                <form action="{% url 'notification:notification_app_ajouter_personne' 'ajouter' %}" method="POST">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        {% for field in form %}
+                                            <div class="col-md-6">
+                                                <div class="form-group pd {% if field.errors %}has-error{% endif %}">
+                                                    <label for="{{ field.id_for_label }}">{{field.label}}</label>
+                                                    {% render_field field class="form-control" %}
+                                                    <small class="form-text text-muted">{{ field.help_text|safe }}</small>
+                                                    {% for error in field.errors %}
+                                                        <p class="pt-2 pb-2 pl-2 pr-2 alert alert-danger" style="border-radius: 7px;">
+                                                            {{ error }}
+                                                        </p>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group text-center">
+                                            <button type="submit" class="btn btn-success btn-sm">Ajouter</button>
+                                            <a href="{% url 'notification:notification_app_index' %}" class="btn btn-secondary btn-sm">Retour</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            {% elif type_opera == 'modifier' and pers_select.id %}
+                                <form action="{% url 'notification:notification_app_detail_personne' 'modifier' pers_select.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        {% for field in form %}
+                                            <div class="col-md-6">
+                                                <div class="form-group pd {% if field.errors %}has-error{% endif %}">
+                                                    <label for="{{ field.id_for_label }}">{{field.label}}</label>
+                                                    {% render_field field class="form-control" %}
+                                                    <small class="form-text text-muted">{{ field.help_text|safe }}</small>
+                                                    {% for error in field.errors %}
+                                                        <p class="pt-2 pb-2 pl-2 pr-2 alert alert-danger" style="border-radius: 7px;">
+                                                            {{ error }}
+                                                        </p>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                        
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group text-center">
+                                            <button type="submit" class="btn btn-success btn-sm">Modifier</button>
+                                            <a href="{% url 'notification:notification_app_index' %}" 
+                                                class="btn btn-secondary btn-sm">
+                                                Retour
+                                            </a>
+                                            <a href="{% url 'notification:notification_app_supprimer_personne' personne.id 'supprimer' %}" 
+                                                class="btn btn-danger btn-sm">
+                                                Supprimer
+                                            </a>
+                                        </div>
+                                    </div>
+                                </form>
+                            {% else %}
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        {% if pers_select %}
+                                            <h2>Liste des anniversaires de <b style="color: #c9b026;">{{pers_select.date_naissance|date:"F Y"}}</b></h2>
+                                        {% else %}
+                                            <h2>Liste des anniversaire de <b style="color: #c9b026;">{% now "F Y" %}</b></h2>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="anniv">
+                                            <ul>
+                                                {% for anniv in anniversaires %}
+                                                    <li>{{ anniv.nom_et_prenom }} (Né le {{ anniv.date_naissance|date:"d F Y" }})</li>
+                                                {% empty %}
+                                                    <p style="color: #dc3545;">pas d'anniversaire</p>
+                                                {% endfor %} 
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                            
+                        </div>
+                    </dl>
+                </div>
+            </div>
+            <div class="col-lg-8 col-sm-12">
+                <div class="wrapper-detail-participants">
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <h2>Tous les personnes</h2>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="btn-personne-ajout">
+                                <a class="btn btn-success btn-sm" href="{% url 'notification:notification_app_ajouter_personne' 'ajouter'  %}">Ajouter</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rempl">
+                        <div class="table-responsive tab-elmt scroll-tab-elmt-evang-boss">
+                            <table class="table table-hover" id="table-messages">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" rowspan="2">#</th>
+                                        <th scope="col" rowspan="2">nom et prénom</th>
+                                        <th scope="col" rowspan="2">date de naissance</th>
+                                        <th scope="col" rowspan="2">contact</th>
+                                        <th scope="col" rowspan="2">sexe</th>
+                                        <th scope="col" rowspan="2">Détail</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for pers in personnes %}
+                                        <tr {% if pers.id == pers_select.id %} style="background-color: #b1cdec;"{% endif %}>
+                                            <th scope="row">{{ forloop.counter }}</th>
+                                            <td>{{pers.nom_et_prenom}}</td>
+                                            <td>{{pers.date_naissance}}</td>
+                                            <td>{{pers.telephone}}</td>
+                                            <td>{{pers.sexe}}</td>
+                                            <td>
+                                                <a class="btn btn-primary btn-sm" 
+                                                    href="{% url 'notification:notification_app_detail_personne' 'modifier' pers.id %}">
+                                                    détail
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    {% empty %}
+                                        <tr style="color: #dc3545;">
+                                            <th scope="row">----</th>
+                                            <td>pas de donnée</td>
+                                            <td>pas de donnée</td>
+                                            <td>pas de donnée</td>
+                                            <td>pas de donnée</td>
+                                            <td>pas de donnée</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
